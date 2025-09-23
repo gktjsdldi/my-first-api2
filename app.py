@@ -1,8 +1,13 @@
 from flask import Flask, jsonify
+from flask_cors import CORS  # CORS를 위해 추가
 import random
 
 # Flask 애플리케이션을 생성합니다.
 app = Flask(__name__)
+
+# CORS(app)을 추가하여 모든 출처에서의 API 요청을 허용합니다.
+# 이렇게 하면 Gemini Canvas와 같은 다른 도메인에서도 API를 호출할 수 있습니다.
+CORS(app)
 
 # '/api/random' URL 경로에 대한 함수를 정의합니다.
 # 이 경로로 GET 요청이 오면 이 함수가 실행됩니다.
